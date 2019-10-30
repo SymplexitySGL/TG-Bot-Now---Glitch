@@ -76,7 +76,7 @@ bot.on('message', (msg) => {
     if (txt === 'Main Menu') {
         bot.sendMessage(msg.chat.id,"Store Menu",{
             "reply_markup": {
-                "keyboard": [["Menu 🥦", "Get Some 🥦"],   ["Get Help 🆘"], ["Strain Info 🍾"]]
+                "keyboard": [["Menu 🥦", "Get Some 🥦"],   ["Contact Us 🆘"], ["Strain Info 🍾"]]
                 }
             });
        
@@ -124,7 +124,7 @@ bot.on('message', (msg) => {
 
 
                 if (txt === 'Strain Info 🍾') {
-                    bot.sendMessage(msg.chat.id,"Hi " + Fname + "Select one of the strains below for more info",{
+                    bot.sendMessage(msg.chat.id,"Hi " + Fname + " Select one of the strains below for more info",{
                         "reply_markup": {
                             "keyboard": [["Green-Crack", "Hindu-Kush","ChemDawg"],   ["TrainWreck", "Big-Bud","Swazi-Gold"] ,["Main Menu"]]
                             }
