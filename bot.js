@@ -42,7 +42,7 @@ request.get(opts, function (error, response, body) {
 if (response && response.statusCode===404){
     
       imgurl=imgurlcs.toString()
-    menucaption = "Our Menu will be up soon!"} 
+    menucaption = "Our daily MENU will be up soon!"} 
 });
 
 
