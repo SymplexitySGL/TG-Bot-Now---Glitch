@@ -1,8 +1,15 @@
 const TelegramBot = require('node-telegram-bot-api');
-
-//const token = '1044681334:AAGPuLOxehSDbaYBhXTiC3Es_JAiKVo8yfw';
 require('dotenv').config({path: __dirname + '/.env'})
 const token = process.env.TG_TOKEN;
+//console.log(token);
+
+var request = require('request');
+
+
+
+
+
+//const token = '955655196:AAH-XO8-72f-JxMlYdaa83_QyYWO4-cFtRw'
 const bot = new TelegramBot(token, {polling: true});
 
 console.log('bot server started...');
@@ -17,11 +24,30 @@ let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 // current year
 let year = date_ob.getFullYear();
 
-
+var strains = "big-bud,trainwreck,green-crack,hindu-kush"
+var menucaption = "Here are our strains of the day"
 var imgurl = "http://www.canacure.co.za/IRFS"+year+month+date + ".jpg"
+var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
 
 
 
+
+opts = {
+    url :imgurl
+};
+request.get(opts, function (error, response, body) {
+    //Handle error, and body
+    
+    
+if (response && response.statusCode===404){
+    
+      imgurl=imgurlcs.toString()
+    menucaption = "Our Menu will be up soon!"} 
+});
+
+
+
+console.log(imgurl)
 
 
 bot.on('message', (msg) => {
@@ -36,12 +62,9 @@ bot.on('message', (msg) => {
     var ordermsgid = msg.message_id;
     var chatid = msg.chat.id
 
-    var strains = "big-bud,trainwreck,green-crack,hindu-kush"
+   
 
-
-
-
-
+    
 
 
 
@@ -80,7 +103,7 @@ bot.on('message', (msg) => {
     
     
     if (txt === 'Menu 🥦') {
-        bot.sendPhoto(msg.chat.id,imgurl,{caption : "Here are our strains of the day "} );
+        bot.sendPhoto(msg.chat.id,imgurl,{caption : menucaption} );
         } 
     
     
