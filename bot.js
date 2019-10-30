@@ -24,11 +24,11 @@ let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 // current year
 let year = date_ob.getFullYear();
 
-var strains = "big-bud,trainwreck,green-crack,hindu-kush"
+var strains = "big-bud,trainwreck,green-crack,hindu-kush,chemdawg,swazi-gold"
 var menucaption = "Here are our strains of the day"
 var imgurl = "http://www.canacure.co.za/IRFS"+year+month+date + ".jpg"
 var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
-
+var unametut = "We have noticed that you do not have a username specified , please specify one in your settings menu (shown above) so we can comunicate in private via telegram";
 
 
 
@@ -62,8 +62,9 @@ bot.on('message', (msg) => {
     var ordermsgid = msg.message_id;
     var chatid = msg.chat.id
 
-   
-
+    var unametut = "We have noticed that you do not have a username specified , please specify one in your settings menu (shown above) so we can comunicate in private via telegram";
+    var unameimg = "http://www.canacure.co.za/uname.jpg"
+ 
     
 
 
@@ -97,7 +98,11 @@ bot.on('message', (msg) => {
 
      //Evaluate all menu option replies
     
-    
+    if (uname === "(@undefined)") {
+        bot.sendPhoto(msg.chat.id,unameimg,{caption : unametut});
+        
+    }  
+  
     if (txt === 'Menu 🥦') {
         bot.sendPhoto(msg.chat.id,imgurl,{caption : menucaption} );
         } 
@@ -121,7 +126,7 @@ bot.on('message', (msg) => {
                 if (txt === 'Strain Info 🍾') {
                     bot.sendMessage(msg.chat.id,"Hi " + Fname + "Select one of the strains below for more info",{
                         "reply_markup": {
-                            "keyboard": [["Green-Crack", "Hindu-Kush"],   ["TrainWreck", "Big-Bud"] ,["Main Menu"]]
+                            "keyboard": [["Green-Crack", "Hindu-Kush","ChemDawg"],   ["TrainWreck", "Big-Bud","Swazi-Gold"] ,["Main Menu"]]
                             }
                         });
                    
