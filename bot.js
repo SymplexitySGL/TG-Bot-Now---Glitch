@@ -32,7 +32,7 @@ var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
 
 
 
-opts = {
+var opts = {
     url :imgurl
 };
 request.get(opts, function (error, response, body) {
@@ -83,11 +83,7 @@ bot.on('message', (msg) => {
 
     if (strains.includes(msg.text.toString().toLowerCase())) {
         bot.sendMessage(msg.chat.id,"Info on : " + txt + "<a href=\"https://www.leafly.com/strains/" + txt.toLowerCase()+ "\"> HERE</a> ",{parse_mode : "HTML"});
-        bot.sendMessage(msg.chat.id, "Welcome to our Shop " + user, {
-            "ReplyKeyboardRemove": {
-                "remove_keyboard": True
-                }
-            });
+        
         } 
             
 
@@ -107,7 +103,7 @@ bot.on('message', (msg) => {
         } 
     
     
-        if (txt === 'Get Help 🆘') {
+        if (txt === 'Contact Us 🆘') {
             bot.sendMessage(msg.chat.id,"Thank You " + Fname + " . a Message have been send to the store , a store representative will contact you via Telegram shortly");
             bot.sendMessage(msg.chat.id, "The location of our store");    
             bot.sendLocation(msg.chat.id,-25.8422533,28.2433618);
@@ -140,7 +136,7 @@ bot.on('message', (msg) => {
         var user = msg.chat.first_name
         bot.sendMessage(msg.chat.id, "Welcome to our Shop " + user, {
         "reply_markup": {
-            "keyboard": [["Menu 🥦", "Get Some 🥦"],   ["Get Help 🆘"], ["Strain Info 🍾"]]
+            "keyboard": [["Menu 🥦", "Get Some 🥦"],   ["Contact Us 🆘"], ["Strain Info 🍾"]]
             }
         });
             
