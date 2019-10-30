@@ -9,7 +9,7 @@ var request = require('request');
 
 
 
-//const token = '955655196:AAH-XO8-72f-JxMlYdaa83_QyYWO4-cFtRw'
+
 const bot = new TelegramBot(token, {polling: true});
 
 console.log('bot server started...');
