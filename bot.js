@@ -26,13 +26,13 @@ let year = date_ob.getFullYear();
 
 var strains = "big-bud,trainwreck,green-crack,hindu-kush,chemdawg,swazi-gold"
 var menucaption = "Here are our strains of the day"
-var imgurl = "http://www.canacure.co.za/IRFS"+year+month+date + ".jpg"
+var imgurl = "http://www.canacure.co.za/IRFS"+year+month+date + "-1.jpg"
 var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
 var unametut = "We have noticed that you do not have a username specified , please specify one in your settings menu (shown above) so we can comunicate in private via telegram";
 
 
 
-var opts = {
+/*var opts = {
     url :imgurl
 };
 request.get(opts, function (error, response, body) {
@@ -44,7 +44,7 @@ if (response && response.statusCode===404){
       imgurl=imgurlcs.toString()
     menucaption = "Our daily MENU will be up soon!"} 
 });
-
+*/
 
 
 console.log(imgurl)
