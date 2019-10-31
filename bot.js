@@ -104,8 +104,17 @@ bot.on('message', (msg) => {
     }  
   
     if (txt === 'Menu 🥦') {
-        bot.sendPhoto(msg.chat.id,imgurl,{caption : menucaption} );
-        } 
+
+        var imgurl = "http://www.canacure.co.za/IRFS" + year + month + date + "-1.jpg"
+        var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
+        //check url
+        var request = require('request');
+        request(imgurl, function (error, response, body) {
+
+           // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            if (response.statusCode === 404) { bot.sendPhoto(msg.chat.id, imgurlcs, { caption: "Our daily Menu will be up SOON" }); } else { bot.sendPhoto(msg.chat.id, imgurl, { caption: menucaption }); }
+        });
+            }
     
     
         if (txt === 'Contact Us 🆘') {
@@ -117,9 +126,23 @@ bot.on('message', (msg) => {
     
     
             if (txt === 'Get Some 🥦') {
-                bot.sendMessage(msg.chat.id,"Hi " + Fname + " .Feel free to browse the <a href=\""+imgurl+"\">MENU</a> if you have not yet ,to see what's available . If you are ready please type in your order in the following format : The word <b>ORDER</b> followed by the code and quantity e.g order GC 3 , TW 4",{parse_mode : "HTML"});
-               
-                } 
+       
+        var imgurl = "http://www.canacure.co.za/IRFS" + year + month + date + "-1.jpg"
+        var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
+        //check url
+        var request = require('request');
+        request(imgurl, function (error, response, body) {
+
+           // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+            if (response.statusCode === 404) { bot.sendMessage(msg.chat.id, "Hi " + Fname + " .Our daily <a href=\"" + imgurlcs + "\">MENU</a> will be avialable <b>SOON</b>", { parse_mode: "HTML" });} 
+            else { bot.sendMessage(msg.chat.id, "Hi " + Fname + " .Feel free to browse the <a href=\"" + imgurl + "\">MENU</a> if you have not yet ,to see what's available . If you are ready please type in your order in the following format : The word <b>ORDER</b> followed by the code and quantity e.g order GC 3 , TW 4", { parse_mode: "HTML" }); }
+        });
+       
+       
+       
+       // bot.sendMessage(msg.chat.id, "Hi " + Fname + " .Feel free to browse the <a href=\"" + imgurl + "\">MENU</a> if you have not yet ,to see what's available . If you are ready please type in your order in the following format : The word <b>ORDER</b> followed by the code and quantity e.g order GC 3 , TW 4", { parse_mode: "HTML" });
+
+    }
         
 
 
