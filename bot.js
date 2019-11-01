@@ -14,17 +14,17 @@ const bot = new TelegramBot(token, {polling: true});
 
 console.log('bot server started...');
 
-let date_ob = new Date();
+var date_ob = new Date();
 
-let date = ("0" + date_ob.getDate()).slice(-2);
+var date = ("0" + date_ob.getDate()).slice(-2);
 
 // current month
-let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
 
 // current year
-let year = date_ob.getFullYear();
+var year = date_ob.getFullYear();
 
-var strains = "big-bud,trainwreck,green-crack,hindu-kush,chemdawg,swazi-gold"
+var strains = "big-bud,trainwreck,green-crack,hindu-kush,chemdawg,swazi-gold,durban-poison,super-lemon-haze,purple-punch"
 var menucaption = "Here are our strains of the day"
 var imgurl = "http://www.canacure.co.za/IRFS"+year+month+date + "-1.jpg"
 var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
@@ -47,7 +47,7 @@ if (response && response.statusCode===404){
 */
 
 
-console.log(imgurl)
+//console.log(imgurl)
 
 
 bot.on('message', (msg) => {
@@ -104,8 +104,17 @@ bot.on('message', (msg) => {
     }  
   
     if (txt === 'Menu 🥦') {
+       var date_ob = new Date();
 
-        var imgurl = "http://www.canacure.co.za/IRFS" + year + month + date + "-1.jpg"
+      var date = ("0" + date_ob.getDate()).slice(-2);
+
+      // current month
+      var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+      // current year
+        var year = date_ob.getFullYear();
+        
+      var imgurl = "http://www.canacure.co.za/IRFS" + year + month + date + "-1.jpg"
         var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
         //check url
         var request = require('request');
@@ -126,7 +135,15 @@ bot.on('message', (msg) => {
     
     
             if (txt === 'Get Some 🥦') {
-       
+       var date_ob = new Date();
+
+      var date = ("0" + date_ob.getDate()).slice(-2);
+
+      // current month
+      var month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+      // current year
+        var year = date_ob.getFullYear();
         var imgurl = "http://www.canacure.co.za/IRFS" + year + month + date + "-1.jpg"
         var imgurlcs = "http://www.canacure.co.za/IFCOMS.jpg"
         //check url
@@ -146,15 +163,14 @@ bot.on('message', (msg) => {
         
 
 
-                if (txt === 'Strain Info 🍾') {
-                    bot.sendMessage(msg.chat.id,"Hi " + Fname + " Select one of the strains below for more info",{
-                        "reply_markup": {
-                            "keyboard": [["Green-Crack", "Hindu-Kush","ChemDawg"],   ["TrainWreck", "Big-Bud","Swazi-Gold"] ,["Main Menu"]]
-                            }
-                        });
-                   
-                    } 
+               if (txt === 'Strain Info 🍾') {
+        bot.sendMessage(msg.chat.id, "Hi " + Fname + " Select one of the strains below for more info", {
+            "reply_markup": {
+                "keyboard": [["Green-Crack", "Hindu-Kush", "ChemDawg"], ["TrainWreck", "Big-Bud", "Swazi-Gold"],  ["Durban-Poison", "Super-Lemon-Haze", "Purple-Punch"],["Main Menu"]]
+            }
+        });
 
+    }
 
     });
 
